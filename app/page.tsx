@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { useState, useEffect } from 'react';
 import { Search, ArrowRight, Code2, Terminal, Cpu, Globe, Database, LayoutTemplate, Star, ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -82,97 +81,12 @@ const PROJECTS = [
 ];
 
 export default function Home() {
-  const [bgMode, setBgMode] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const renderBackground = () => {
-    switch(bgMode) {
-      case 0: // Base Noise
-        return <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>;
-      case 1: // Stage Spotlight
-        return (
-          <>
-            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-500/20 via-zinc-900/5 to-transparent pointer-events-none z-0"></div>
-          </>
-        );
-      case 2: // Interactive Cursor Reveal
-        return (
-          <>
-            <div className="absolute inset-0 z-0 bg-[#0a0a0a]"></div>
-            <div 
-              className="absolute inset-0 z-0 pointer-events-none opacity-30 transition-opacity duration-300"
-              style={{
-                backgroundImage: 'radial-gradient(circle 1px at center, #ffffff 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-                maskImage: `radial-gradient(circle 300px at ${mousePos.x}px ${mousePos.y}px, black, transparent)`,
-                WebkitMaskImage: `radial-gradient(circle 300px at ${mousePos.x}px ${mousePos.y}px, black, transparent)`
-              }}
-            ></div>
-          </>
-        );
-      case 3: // Micro-Patterns
-        return (
-          <>
-            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
-                 style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M20 16v8M16 20h8\' stroke=\'%23ffffff\' stroke-width=\'1\' fill=\'none\'/%3E%3C/svg%3E")' }}>
-            </div>
-          </>
-        );
-      case 4: // Deep Vignette
-        return (
-          <>
-            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-            <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,_transparent_0%,_#000000_100%)]"></div>
-          </>
-        );
-      case 5: // Monochromatic Mesh
-        return (
-          <>
-            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-              <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,_#18181b_0%,_transparent_70%)] blur-3xl"></div>
-              <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,_#09090b_0%,_transparent_70%)] blur-3xl"></div>
-              <div className="absolute top-[20%] right-[20%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,_#27272a_0%,_transparent_70%)] blur-3xl opacity-30"></div>
-            </div>
-          </>
-        );
-      case 6: // Refined Glassmorphism
-        return (
-          <>
-            <div className="absolute inset-0 z-0 bg-black"></div>
-            <div className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-          </>
-        );
-      default:
-        return null;
-    }
-  };
-
-  const bgNames = [
-    "Base Noise",
-    "Stage Spotlight",
-    "Interactive Cursor",
-    "Micro-Patterns",
-    "Deep Vignette",
-    "Monochromatic Mesh",
-    "Refined Glassmorphism"
-  ];
-
   return (
-    <div className={`min-h-screen ${bgMode === 6 ? 'bg-black' : 'bg-[#0a0a0a]'} text-zinc-300 font-sans selection:bg-zinc-800 selection:text-white overflow-hidden relative`}>
-      {renderBackground()}
+    <div className="min-h-screen bg-black text-zinc-300 font-sans selection:bg-zinc-800 selection:text-white overflow-hidden relative">
+      <div className="absolute inset-0 z-0 bg-black"></div>
+      <div className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
 
-      <nav className={`relative z-50 flex items-center justify-between px-6 py-6 max-w-7xl mx-auto ${bgMode === 6 ? 'sticky top-0 bg-black/40 backdrop-blur-xl border-b border-white/5' : ''}`}>
+      <nav className="relative z-50 flex items-center justify-between px-6 py-6 max-w-7xl mx-auto sticky top-0 bg-black/40 backdrop-blur-xl border-b border-white/5">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
             <Code2 className="w-5 h-5 text-black" />
@@ -269,7 +183,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className={`group relative flex flex-col ${bgMode === 6 ? 'bg-white/[0.02] backdrop-blur-xl border-white/5' : 'bg-zinc-900/40 border-zinc-800/50'} rounded-2xl p-6 hover:bg-zinc-900/80 transition-all duration-300 ${project.border}`}
+                className="group relative flex flex-col bg-white/[0.02] backdrop-blur-xl border-white/5 rounded-2xl p-6 hover:bg-zinc-900/80 transition-all duration-300 ${project.border}"
               >
                 {/* Card Background Glow */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500 pointer-events-none`}></div>
@@ -336,7 +250,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className={`md:col-span-2 ${bgMode === 6 ? 'bg-white/[0.02] backdrop-blur-xl border-white/5' : 'bg-zinc-900/40 border-zinc-800/50'} rounded-2xl p-8 relative overflow-hidden group`}
+              className="md:col-span-2 bg-white/[0.02] backdrop-blur-xl border-white/5 rounded-2xl p-8 relative overflow-hidden group"
             >
               <h3 className="text-xl font-medium text-white mb-2 relative z-10">Reach the right audience</h3>
               <p className="text-zinc-400 max-w-md relative z-10">Get your tools in front of thousands of developers actively looking for solutions to their technical problems.</p>
@@ -359,7 +273,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className={`${bgMode === 6 ? 'bg-white/[0.02] backdrop-blur-xl border-white/5' : 'bg-zinc-900/40 border-zinc-800/50'} rounded-2xl p-8 relative overflow-hidden group`}
+              className="bg-white/[0.02] backdrop-blur-xl border-white/5 rounded-2xl p-8 relative overflow-hidden group"
             >
               <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-emerald-500/10 to-transparent"></div>
               <h3 className="text-xl font-medium text-white mb-2">Zero fees on free tools</h3>
@@ -372,7 +286,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className={`${bgMode === 6 ? 'bg-white/[0.02] backdrop-blur-xl border-white/5' : 'bg-zinc-900/40 border-zinc-800/50'} rounded-2xl p-8 relative overflow-hidden group flex flex-col justify-between`}
+              className="bg-white/[0.02] backdrop-blur-xl border-white/5 rounded-2xl p-8 relative overflow-hidden group flex flex-col justify-between"
             >
               <div>
                 <h3 className="text-xl font-medium text-white mb-2">Analytics</h3>
@@ -394,7 +308,7 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className={`md:col-span-2 ${bgMode === 6 ? 'bg-white/[0.02] backdrop-blur-xl border-white/5' : 'bg-zinc-900/40 border-zinc-800/50'} rounded-2xl p-8 relative overflow-hidden group`}
+              className="md:col-span-2 bg-white/[0.02] backdrop-blur-xl border-white/5 rounded-2xl p-8 relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/code/800/400')] opacity-5 grayscale group-hover:grayscale-0 group-hover:opacity-10 transition-all duration-700 bg-cover bg-center"></div>
               <div className="relative z-10 h-full flex flex-col justify-center">
@@ -426,16 +340,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      <div className="fixed bottom-6 right-6 z-[100] flex items-center gap-3 bg-zinc-900/90 backdrop-blur-md border border-zinc-800 p-2 rounded-full shadow-2xl">
-        <span className="text-xs font-mono text-zinc-400 pl-3">{bgNames[bgMode]}</span>
-        <button 
-          onClick={() => setBgMode((prev) => (prev + 1) % 7)}
-          className="bg-white text-black px-3 py-1.5 rounded-full text-xs font-medium hover:bg-zinc-200 transition-colors"
-        >
-          Next Style
-        </button>
-      </div>
     </div>
   );
 }
