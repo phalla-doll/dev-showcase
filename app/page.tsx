@@ -96,7 +96,7 @@ export default function Home() {
           <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
             <Code2 className="w-5 h-5 text-black" />
           </div>
-          <span className="font-mono font-bold text-white tracking-tight">DevShowcase</span>
+          <span className="font-mono font-medium text-white tracking-tight">DevShowcase</span>
         </div>
         <div className="flex items-center gap-6 text-sm font-medium">
           <Link href="#" className="hover:text-white transition-colors">Explore</Link>
@@ -126,7 +126,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-bold text-white tracking-tighter max-w-4xl leading-[1.1] mb-6"
+            className="text-5xl md:text-7xl font-medium text-white tracking-tighter max-w-4xl leading-[1.1] mb-6"
           >
             The marketplace for <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-500">
@@ -174,7 +174,7 @@ export default function Home() {
         {/* Grid Section */}
         <section className="pb-32">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-white tracking-tight">Featured Projects</h2>
+            <h2 className="text-2xl font-medium text-white tracking-tight">Featured Projects</h2>
             <Link href="#" className="text-sm font-mono text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
               View all <ArrowRight className="w-4 h-4" />
             </Link>
@@ -206,7 +206,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-400 transition-all">
+                <h3 className="text-xl font-medium text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-400 transition-all">
                   {project.title}
                 </h3>
                 <p className="text-sm text-zinc-400 mb-6 flex-grow line-clamp-2">
@@ -247,7 +247,7 @@ export default function Home() {
         {/* Bento Grid Section */}
         <section className="pb-32">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white tracking-tight mb-2">Why DevShowcase?</h2>
+            <h2 className="text-2xl font-medium text-white tracking-tight mb-2">Why DevShowcase?</h2>
             <p className="text-zinc-400">Everything you need to launch and scale your developer tools.</p>
           </div>
           
@@ -259,7 +259,7 @@ export default function Home() {
               className="md:col-span-2 bg-zinc-900/40 border border-zinc-800/50 rounded-2xl p-8 relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-500"></div>
-              <h3 className="text-xl font-bold text-white mb-2 relative z-10">Reach the right audience</h3>
+              <h3 className="text-xl font-medium text-white mb-2 relative z-10">Reach the right audience</h3>
               <p className="text-zinc-400 max-w-md relative z-10">Get your tools in front of thousands of developers actively looking for solutions to their technical problems.</p>
               
               <div className="absolute bottom-4 right-4 flex gap-2 opacity-50 group-hover:opacity-100 transition-opacity duration-500">
@@ -283,9 +283,9 @@ export default function Home() {
               className="bg-zinc-900/40 border border-zinc-800/50 rounded-2xl p-8 relative overflow-hidden group"
             >
               <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-emerald-500/10 to-transparent"></div>
-              <h3 className="text-xl font-bold text-white mb-2">Zero fees on free tools</h3>
+              <h3 className="text-xl font-medium text-white mb-2">Zero fees on free tools</h3>
               <p className="text-zinc-400 text-sm">We only make money when you do. Free open-source projects are always free to list.</p>
-              <div className="mt-6 text-4xl font-mono font-bold text-emerald-400 group-hover:scale-110 transition-transform origin-left">0%</div>
+              <div className="mt-6 text-4xl font-mono font-medium text-emerald-400 group-hover:scale-110 transition-transform origin-left">0%</div>
             </motion.div>
             
             <motion.div 
@@ -296,7 +296,7 @@ export default function Home() {
               className="bg-zinc-900/40 border border-zinc-800/50 rounded-2xl p-8 relative overflow-hidden group flex flex-col justify-between"
             >
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">Analytics</h3>
+                <h3 className="text-xl font-medium text-white mb-2">Analytics</h3>
                 <p className="text-zinc-400 text-sm">Track views, clicks, and conversions in real-time.</p>
               </div>
               <div className="flex items-end gap-1 h-16 mt-4">
@@ -319,7 +319,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/code/800/400')] opacity-5 grayscale group-hover:grayscale-0 group-hover:opacity-10 transition-all duration-700 bg-cover bg-center"></div>
               <div className="relative z-10 h-full flex flex-col justify-center">
-                <h3 className="text-2xl font-bold text-white mb-2">Ready to launch?</h3>
+                <h3 className="text-2xl font-medium text-white mb-2">Ready to launch?</h3>
                 <p className="text-zinc-400 max-w-md mb-6">Join hundreds of developers who are already monetizing their side projects and tools.</p>
                 <button className="w-fit bg-white text-black px-6 py-3 rounded-lg font-medium text-sm hover:bg-zinc-200 transition-colors flex items-center gap-2">
                   Submit your project <ArrowRight className="w-4 h-4" />
@@ -334,7 +334,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Code2 className="w-5 h-5 text-zinc-500" />
-            <span className="font-mono font-bold text-zinc-500 tracking-tight">DevShowcase</span>
+            <span className="font-mono font-medium text-zinc-500 tracking-tight">DevShowcase</span>
           </div>
           <div className="flex gap-6 text-sm text-zinc-500">
             <Link href="#" className="hover:text-white transition-colors">Terms</Link>
