@@ -89,25 +89,7 @@ export default function Home() {
         style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}
       ></div>
       
-      {/* Dynamic Abstract Glows */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.15, 0.25, 0.15]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-gradient-to-br from-zinc-600/30 to-transparent blur-[120px]"
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-[10%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-bl from-zinc-500/20 to-transparent blur-[120px]"
-        />
-      </div>
+
 
       <nav className="relative z-10 flex items-center justify-between px-6 py-6 max-w-7xl mx-auto">
         <div className="flex items-center gap-2">
@@ -167,7 +149,6 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
             className="w-full max-w-2xl relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-xl blur-xl transition-opacity opacity-0 group-hover:opacity-100 duration-500"></div>
             <div className="relative flex items-center bg-zinc-900/80 border border-zinc-800 rounded-xl p-2 backdrop-blur-sm transition-all duration-300 focus-within:border-zinc-600 focus-within:bg-zinc-900">
               <Search className="w-5 h-5 text-zinc-500 ml-3" />
               <input 
@@ -276,7 +257,6 @@ export default function Home() {
               viewport={{ once: true }}
               className="md:col-span-2 bg-zinc-900/40 border border-zinc-800/50 rounded-2xl p-8 relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full group-hover:bg-blue-500/20 transition-colors duration-500"></div>
               <h3 className="text-xl font-medium text-white mb-2 relative z-10">Reach the right audience</h3>
               <p className="text-zinc-400 max-w-md relative z-10">Get your tools in front of thousands of developers actively looking for solutions to their technical problems.</p>
               
