@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'DevShowcase - Discover Developer Projects',
   description: 'A platform for developers to showcase and sell their projects.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
